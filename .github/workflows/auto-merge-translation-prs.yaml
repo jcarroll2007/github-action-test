@@ -1,1 +1,24 @@
 # test
+name: Auto-Merge Smartling
+on:
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  merge:
+    if: contains(github.event.pull_request.title, 'SMARTLING')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/github-script@v6
+        id: merge
+        with:
+          result-encoding: string
+          retries: 3
+          retry-exempt-status-codes: 400,401
+          script: |
+            github.rest.pulls.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              merge_method: 'squash'
+            });
