@@ -6,8 +6,10 @@
 
 name: Auto-Merge Smartling
 on:
-  pull_request:
-    branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
+  check_suite:
+    types: ["completed"]
 jobs:
   merge:
     if: contains(github.event.pull_request.title, 'SMARTLING')
