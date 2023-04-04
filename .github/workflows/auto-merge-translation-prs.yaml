@@ -1,4 +1,9 @@
 # test
+
+# TODO 
+# dependent checks passing
+# base it on author instead of title
+
 name: Auto-Merge Smartling
 on:
   pull_request:
