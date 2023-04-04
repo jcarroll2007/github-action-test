@@ -1,0 +1,15 @@
+# test
+
+# TODO 
+# dependent checks passing
+# base it on author instead of title
+
+name: Synthetic Wait
+on:
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  wait:    
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 120
