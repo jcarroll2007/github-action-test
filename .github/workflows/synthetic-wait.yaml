@@ -12,4 +12,4 @@ jobs:
   wait:    
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 120
+      - run: sleep 20
